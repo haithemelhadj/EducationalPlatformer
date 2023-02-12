@@ -22,8 +22,8 @@ public class PlayerConctroller : MonoBehaviour
     {
         //CameraControl();
         Movement();
-        CheckGrounded();
-        jump();
+        //CheckGrounded();
+        //jump();
     }
     
     /*
@@ -116,7 +116,9 @@ public class PlayerConctroller : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            //Vector3 moveDir = Quaternion.Euler(0f, 0f,targetAngle) * Vector3.forward;
+            Vector3 moveDir = horizontal * Camera.main.transform.right + vertical * Camera.main.transform.forward;
+            moveDir = Vector3.Scale(moveDir, new Vector3(1, 0, 1)).normalized;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
     }
