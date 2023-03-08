@@ -102,6 +102,7 @@ public class PlayerConctroller : MonoBehaviour
     public Transform cam;//-----
     float turnSmoothVelocity;//-------
     public float turnSmoothTime = 0.1f;//-----
+    public Vector3 moveDir;
     #region Movement
     //player movement function
     void Movement()
@@ -109,18 +110,21 @@ public class PlayerConctroller : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
+        
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            //Vector3 moveDir = Quaternion.Euler(0f, 0f,targetAngle) * Vector3.forward;
-            Vector3 moveDir = horizontal * Camera.main.transform.right + vertical * Camera.main.transform.forward;
-            moveDir = Vector3.Scale(moveDir, new Vector3(1, 0, 1)).normalized;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            //moveDir = horizontal * Camera.main.transform.right + vertical * Camera.main.transform.forward;
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            //moveDir = Vector3.Scale(moveDir, new Vector3(1, 0, 1)).normalized;
+            //Debug.Log(moveDir);
+            //controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        transform.Translate(moveDir * Time.deltaTime * speed);
         }
+        
     }
     #endregion
 
