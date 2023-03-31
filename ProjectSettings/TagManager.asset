@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - Runestone
+  - Water
+  - Red
+  - Green
+  - Yellow
+  - Blue
   layers:
   - Default
   - TransparentFX

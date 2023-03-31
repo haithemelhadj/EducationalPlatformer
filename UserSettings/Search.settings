@@ -10,9 +10,9 @@ scopes = {
 	"last_search.2138236A" = ""
 	"OpenInspectorPreview.2138236A" = "0"
 	"currentGroup.2138236A" = "asset"
-	"last_search.DA949528" = "mesh"
+	"last_search.DA949528" = "snap"
 	"OpenInspectorPreview.DA949528" = "0"
-	"currentGroup.DA949528" = "all"
+	"currentGroup.DA949528" = "settings"
 }
 providers = {
 	adb = {
@@ -59,6 +59,8 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"s"
+	"e"
 	"me"
 	"Apply All Modified"
 ]

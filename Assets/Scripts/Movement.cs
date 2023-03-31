@@ -58,8 +58,9 @@ public class Movement : MonoBehaviour
         // Jump if the character is on the ground and the jump button is pressed
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
             animator.SetTrigger("isJumping");
+            velocity.y = Mathf.Sqrt(jumpForce * -3.0f * gravity);
+            
         }
 
         // Apply gravity to the character controller

@@ -29,3 +29,51 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: Flower
+  - gameObject: {fileID: 7813284003025598349, guid: 6fd6d019af66e27498f3b2633c9e66d9, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 2.4590168, y: 6.557377}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: PP_Grass_11.001
+  - gameObject: {fileID: 4623106807017898109, guid: ed15e3dbd45508a4d87c795402a0438c, type: 3}
+    settings:
+      m_Strength: 100
+      m_RotationRangeMin: {x: 0, y: 0, z: 360}
+      m_RotationRangeMax: {x: 0, y: 0, z: 360}
+      m_ScaleRangeMin: {x: 8.350993, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 8.350993, y: 8.417218, z: 1}
+      m_UniformScale: {x: 7.885246, y: 8.377049}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: PP_Grass_15.001
+  - gameObject: {fileID: 7813284003025598349, guid: 6fd6d019af66e27498f3b2633c9e66d9, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: PP_Grass_11.001
