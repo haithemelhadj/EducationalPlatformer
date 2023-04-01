@@ -14,6 +14,9 @@ public class Movement : MonoBehaviour
     public float gravity = -9.81f;
     private Vector3 velocity;
 
+    public Vector3 LastTouchedPosition;
+    [SerializeField] private float lowestPosition;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -23,8 +26,12 @@ public class Movement : MonoBehaviour
     {
         Move();
         Jump();
+        
     }
-
+    private void LateUpdate()
+    {
+        LastPosition();
+    }
     private void Move()
     {
         // Get the horizontal and vertical input values
@@ -40,7 +47,7 @@ public class Movement : MonoBehaviour
         if (movement.magnitude > 0.1f)
         {
             transform.LookAt(transform.position + movement);
-            animator.SetFloat("Speed", 1);
+            animator.SetFloat("Speed", movement.magnitude);//movement.magnitude
         }
         else
         {
@@ -66,5 +73,19 @@ public class Movement : MonoBehaviour
         // Apply gravity to the character controller
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    void LastPosition()
+    {
+        if(isGrounded)
+        {
+            LastTouchedPosition = transform.position;
+        }
+        if(transform.position.y<=lowestPosition) 
+        {
+            Debug.Log("teleporting");
+            controller.transform.position = LastTouchedPosition;
+        }
+        
     }
 }
