@@ -8,6 +8,6 @@ public class PlayerInventory : MonoBehaviour
     
     public void FruitCollected()
     {
-        isFull = 1;
+        isFull = 1; 
     }
 }

@@ -15,10 +15,11 @@ public class Fruit : MonoBehaviour
     private void Update()
     {
         
-            if (Input.GetKeyDown(KeyCode.E) && (isCollided))
+            if (Input.GetKeyDown(KeyCode.E) && (isCollided) /*&& playerInventory.isFull== 0*/)
             {
                 playerInventory.FruitCollected();
                 gameObject.SetActive(false);
+                isCollided= false;
             } 
     }
     private void OnTriggerEnter(Collider other)
@@ -27,14 +28,12 @@ public class Fruit : MonoBehaviour
         {
             isCollided = true;
         }
-
-
-
-            /*PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
-            if (playerInventory != null && Input.GetKeyDown(KeyCode.E))
-            {
-                playerInventory.FruitCollected();
-                gameObject.SetActive(false);
-            }*/
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isCollided = false;
+        }
     }
 }

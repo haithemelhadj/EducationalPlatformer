@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7215583724453363539}
   - component: {fileID: 1868147822692830713}
   - component: {fileID: 3559774317046963664}
+  - component: {fileID: 5515670501708901598}
   m_Layer: 0
   m_Name: Cherry
   m_TagString: Untagged
@@ -93,8 +94,21 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6348443563813376012}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.04, y: 0.03, z: 0.04}
   m_Center: {x: -0.03734638, y: 0.0034244754, z: 0.0027030823}
+--- !u!114 &5515670501708901598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348443563813376012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aeef0a5b5022142b31c498cfdee0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
