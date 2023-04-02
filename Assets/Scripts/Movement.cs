@@ -83,7 +83,7 @@ public class Movement : MonoBehaviour
         }
         if(transform.position.y<=lowestPosition) 
         {
-            Debug.Log("teleporting");
+            //Debug.Log("teleporting");
             controller.transform.position = LastTouchedPosition;
         }
         

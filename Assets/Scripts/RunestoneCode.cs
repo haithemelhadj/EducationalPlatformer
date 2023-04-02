@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RunestoneCode : MonoBehaviour
 {
+
+    [SerializeField] private GameObject Player;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private bool isCollided = false;
     [SerializeField] private GameObject droppedFruit;
@@ -15,7 +17,12 @@ public class RunestoneCode : MonoBehaviour
 
     private void Update()
     {
-        droppedFruit = playerInventory.collectedItem;
+        if(Player!=null && Player.GetComponent<PlayerInventory>().isFull==1)
+        {
+            droppedFruit = Player.GetComponent<PlayerInventory>().collectedItem;
+        }
+        //droppedFruit = playerInventory.collectedItem;  <= this is wrong , you need to get the component from gameobject first
+        // what?
         if (transform.parent != null)
         {
             parentTag = transform.parent.gameObject.tag;
@@ -25,6 +32,7 @@ public class RunestoneCode : MonoBehaviour
             fruitParentTag = droppedFruit.transform.parent.gameObject.tag;
         }
         slotFruit = transform.GetChild(0).gameObject;
+        // 
         CheckMatch();
     }
 
@@ -35,8 +43,8 @@ public class RunestoneCode : MonoBehaviour
             if (droppedFruit != null && droppedFruit.CompareTag(gameObject.tag) && parentTag == fruitParentTag)
             {
                 UnityEngine.Debug.Log("Correct Match!");
-                // Add Score script
-                //Score() ; 
+                // Add currentScore script
+                //currentScore() ; 
                 playerInventory.isFull = 0;
                 playerInventory.collectedItem = null;
                 slotFruit.SetActive(true); 
@@ -53,6 +61,7 @@ public class RunestoneCode : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isCollided = true;
+            Player = other.gameObject;
         }
     }
     private void OnTriggerExit (Collider other)
