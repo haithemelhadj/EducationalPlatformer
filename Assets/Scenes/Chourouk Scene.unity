@@ -6672,7 +6672,7 @@ MonoBehaviour:
   - {fileID: 944544608}
   Timer: 300
   timeLeftText: {fileID: 1057401599}
-  levelScore: 50
+  levelScore: 25
   ScoreText: {fileID: 2130568254}
 --- !u!4 &1011164508
 Transform:
@@ -9080,8 +9080,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   gravity: -9.81
+  CanMove: 0
   LastTouchedPosition: {x: 0, y: 0, z: 0}
-  lowestPosition: 16
+  lowestPosition: 15.3
+  goingUp: 0
+  goingRight: 0
+  goingForward: 0
 --- !u!143 &1268425458
 CharacterController:
   m_ObjectHideFlags: 0
