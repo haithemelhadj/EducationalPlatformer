@@ -1,57 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class RunestoneCode : MonoBehaviour
 {
 
-    [SerializeField] private GameObject Player;
+    //[SerializeField] private GameObject Player;
     [SerializeField] private PlayerInventory playerInventory;
-    [SerializeField] private bool isCollided = false;
+    [SerializeField] private bool canPlaceFruit = false;
     [SerializeField] private GameObject droppedFruit;
-    [SerializeField] private GameObject slotFruit;
+    //[SerializeField] private GameObject slotFruit;
     private string parentTag;
     private string fruitParentTag;
-    
+
+
+    private void Start()
+    {
+        parentTag = transform.parent.gameObject.tag;        
+    }
+
 
     private void Update()
     {
-        if(Player!=null && Player.GetComponent<PlayerInventory>().isFull==1)
-        {
-            droppedFruit = Player.GetComponent<PlayerInventory>().collectedItem;
-        }
-        //droppedFruit = playerInventory.collectedItem;  <= this is wrong , you need to get the component from gameobject first
-        // what?
-        if (transform.parent != null)
-        {
-            parentTag = transform.parent.gameObject.tag;
-        }
-        if (droppedFruit != null && droppedFruit.transform.parent != null)
-        {
-            fruitParentTag = droppedFruit.transform.parent.gameObject.tag;
-        }
-        slotFruit = transform.GetChild(0).gameObject;
-        // 
         CheckMatch();
     }
 
+    
+
     public void CheckMatch()
     {
-        if (isCollided && Input.GetKeyDown(KeyCode.I))
+        if (canPlaceFruit && Input.GetKeyDown(KeyCode.E))// mathabeya yenzel 3al E fi 3outh I
         {
-            if (droppedFruit != null && droppedFruit.CompareTag(gameObject.tag) && parentTag == fruitParentTag)
+            if (droppedFruit.CompareTag(gameObject.tag) && parentTag == fruitParentTag)
             {
-                UnityEngine.Debug.Log("Correct Match!");
-                // Add currentScore script
-                //currentScore() ; 
+                Debug.Log("Correct Match!");
+                //play good match audio
+                
+                GameManager.currentScore += GameManager.addedScore;
+                
                 playerInventory.isFull = 0;
                 playerInventory.collectedItem = null;
-                slotFruit.SetActive(true); 
+                //slotFruit.SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
                 UnityEngine.Debug.Log("Incorrect!");
+                //play bad mismatch audio
             }
         }
     }
@@ -60,15 +55,26 @@ public class RunestoneCode : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isCollided = true;
-            Player = other.gameObject;
+            
+
+            if(playerInventory.isFull==1)
+            {
+                droppedFruit = playerInventory.collectedItem;
+
+                if (droppedFruit.transform.parent != null)
+                {
+                    fruitParentTag = droppedFruit.transform.parent.gameObject.tag;
+                }
+
+                canPlaceFruit = true;
+            }
         }
     }
     private void OnTriggerExit (Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            isCollided = false;
+            canPlaceFruit = false;
         }
     }
 }

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public static float currentScore;
     public float levelScore;
     public Text ScoreText;
+    [SerializeField] public static int addedScore=1;
 
 
     // Start is called before the first frame update
