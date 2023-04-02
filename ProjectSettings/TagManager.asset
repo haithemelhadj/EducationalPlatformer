@@ -11,6 +11,11 @@ TagManager:
   - Green
   - Yellow
   - Blue
+  - Apple
+  - Pear
+  - Cherry
+  - Banana
+  - Carrot
   layers:
   - Default
   - TransparentFX

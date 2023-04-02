@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Fruit : MonoBehaviour
 {
     private bool isCollided = false;
-    public PlayerInventory playerInventory;
+    [SerializeField] private PlayerInventory playerInventory;
+
     private void Start()
     {
         
@@ -15,11 +16,12 @@ public class Fruit : MonoBehaviour
     private void Update()
     {
         
-            if (Input.GetKeyDown(KeyCode.E) && (isCollided) /*&& playerInventory.isFull== 0*/)
+            if (Input.GetKeyDown(KeyCode.E) && (isCollided) && playerInventory.isFull== 0)
             {
-                playerInventory.FruitCollected();
-                gameObject.SetActive(false);
-                isCollided= false;
+                 playerInventory.FruitCollected(gameObject);
+                 gameObject.SetActive(false);
+                 isCollided= false;
+                
             } 
     }
     private void OnTriggerEnter(Collider other)

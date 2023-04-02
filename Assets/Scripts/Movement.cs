@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
         if (movement.magnitude > 0.1f)
         {
             transform.LookAt(transform.position + movement);
-            animator.SetFloat("Speed", movement.magnitude);//movement.magnitude
+            animator.SetFloat("Speed",1);//movement.magnitude
         }
         else
         {
