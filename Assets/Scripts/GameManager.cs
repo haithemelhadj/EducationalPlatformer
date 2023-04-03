@@ -69,10 +69,14 @@ public class GameManager : MonoBehaviour
         if(currentScore < levelScore)
         {
             // lose and reset level
+            //rest scene
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else
         {
             //win and move to next scene
+            //trigger lab animation
+            //load next scene
         }
     }
 

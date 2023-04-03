@@ -90,4 +90,11 @@ public class Movement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Respawn"))
+        {
+            Respawn = other.transform;
+        }
+    }
 }
