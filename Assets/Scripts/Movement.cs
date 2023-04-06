@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     public Vector3 LastTouchedPosition;
     [SerializeField] private float lowestPosition;
     public Transform Respawn;
+    public Transform mainCamera;
 
     //[SerializeField] private bool CanMove=true;
     //[SerializeField] float goingUp,goingRight,goingForward;
@@ -50,13 +51,34 @@ public class Movement : MonoBehaviour
     private void Move()
     {
         // Get the horizontal and vertical input values
-        float moveHorizontal = -Input.GetAxis("Horizontal");
-        float moveVertical = -Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
         // Create a Vector3 movement vector based on the input values
         Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
         // Normalize the movement vector to prevent faster diagonal movement
         movement = Vector3.ClampMagnitude(movement, 1f);
+
+        //--------------
+        Vector3 cameraForward = mainCamera.forward;
+        Vector3 cameraRight = mainCamera.right;
+
+        // Zero out the y components of the vectors to keep the movement in the XZ plane
+        cameraForward.y = 0f;
+        cameraRight.y = 0f;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // Combine the vectors to get the movement relative to the camera
+        movement = cameraForward * moveVertical + cameraRight * moveHorizontal;
+        movement = Vector3.ClampMagnitude(movement, 1f);
+        //---------------
+
+
+
+
+
+
 
         // Rotate the character towards the movement vector
         if (movement.magnitude > 0.1f)

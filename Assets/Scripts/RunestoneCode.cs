@@ -37,7 +37,7 @@ public class RunestoneCode : MonoBehaviour
                 //play good match audio
                 
                 GameManager.currentScore += GameManager.addedScore;
-                
+                canPlaceFruit = false;
                 playerInventory.isFull = 0;
                 playerInventory.collectedItem = null;
                 //slotFruit.SetActive(true);
