@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.1f;
     [SerializeField] private CharacterController controller;
     [SerializeField] private LayerMask groundMask;
+ 
+
     public float gravity = -9.81f;
     private Vector3 velocity;
 
@@ -31,6 +33,7 @@ public class Movement : MonoBehaviour
     {
             Move();
             Jump();
+            
     }
     private void LateUpdate()
     {
@@ -95,7 +98,7 @@ public class Movement : MonoBehaviour
         // Apply the movement vector to the character controller
         controller.Move(movement * moveSpeed * Time.deltaTime);
     }
-
+    
     private void Jump()
     {
         isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
@@ -120,4 +123,5 @@ public class Movement : MonoBehaviour
             Respawn = other.transform;
         }
     }
+    
 }
