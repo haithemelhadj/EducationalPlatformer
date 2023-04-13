@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class PlatformController : MonoBehaviour
 {
-    public float speed = 2f; // The speed at which the platform moves
-    public float maxHeight ; // The maximum height the platform can reach
-    public float minHeight ; // The minimum height the platform can reach
+    [SerializeField] private float speed = 2f; // The speed at which the platform moves
+    private float maxHeight ; // The maximum height the platform can reach
+    private float minHeight ; // The minimum height the platform can reach
+    [SerializeField] private float addHeight = 10.0f;
+
 
     private bool goingUp = true; // Flag to indicate if the platform is moving up or down
     
     void Start()
     {
         minHeight = transform.position.y ;
-        maxHeight = minHeight + 10.0f;
+        maxHeight = minHeight + addHeight;
     }
     // Update is called once per frame
     void Update()

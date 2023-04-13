@@ -123,5 +123,8 @@ public class Movement : MonoBehaviour
             Respawn = other.transform;
         }
     }
+
+    //OntriggerEnter 
+    //if player collides with spikes -Life points 
     
 }
