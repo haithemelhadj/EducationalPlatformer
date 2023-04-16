@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.1f;
     [SerializeField] private CharacterController controller;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private bool RespawnNextFrame = false;
  
 
     public float gravity = -9.81f;
@@ -42,16 +43,19 @@ public class Movement : MonoBehaviour
 
     public void LastPosition()
     {
-        if(isGrounded)
+        if(RespawnNextFrame)
         {
-            LastTouchedPosition = transform.position + new Vector3(0, 2, 0);
+            transform.position = Respawn.position;
+            transform.rotation = Respawn.rotation;
+            RespawnNextFrame = false;
         }
         if(transform.position.y< lowestPosition)
         {
-            //transform.position = LastTouchedPosition;
             transform.position = Respawn.position;
         }
     }
+
+
     private void Move()
     {
         // Get the horizontal and vertical input values
@@ -121,6 +125,10 @@ public class Movement : MonoBehaviour
         if(other.CompareTag("Respawn"))
         {
             Respawn = other.transform;
+        }
+        if(other.CompareTag("Spike"))
+        {
+            RespawnNextFrame = true;
         }
     }
 
