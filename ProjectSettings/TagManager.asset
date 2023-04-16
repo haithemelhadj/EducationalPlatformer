@@ -16,6 +16,7 @@ TagManager:
   - Cherry
   - Banana
   - Carrot
+  - Spike
   layers:
   - Default
   - TransparentFX

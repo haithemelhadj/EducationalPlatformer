@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RunestoneCode : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class RunestoneCode : MonoBehaviour
     private string parentTag;
     private string fruitParentTag;
 
+    public Sprite empty;
+    public GameObject pickedFruit;
 
     private void Start()
     {
@@ -25,7 +29,7 @@ public class RunestoneCode : MonoBehaviour
         CheckMatch();
     }
 
-    
+
 
     public void CheckMatch()
     {
@@ -39,6 +43,10 @@ public class RunestoneCode : MonoBehaviour
                 GameManager.currentScore += GameManager.addedScore;
                 canPlaceFruit = false;
                 playerInventory.isFull = 0;
+
+
+                pickedFruit.GetComponent<Image>().sprite = empty;
+
                 playerInventory.collectedItem = null;
                 //slotFruit.SetActive(true);
                 transform.GetChild(0).gameObject.SetActive(true);
@@ -65,7 +73,6 @@ public class RunestoneCode : MonoBehaviour
                 {
                     fruitParentTag = droppedFruit.transform.parent.gameObject.tag;
                 }
-
                 canPlaceFruit = true;
             }
         }
