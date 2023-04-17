@@ -14,13 +14,18 @@ public class RunestoneCode : MonoBehaviour
     //[SerializeField] private GameObject slotFruit;
     private string parentTag;
     private string fruitParentTag;
+    public AudioManganer audioManganer;
 
     public Sprite empty;
     public GameObject pickedFruit;
 
     private void Start()
     {
-        parentTag = transform.parent.gameObject.tag;        
+        parentTag = transform.parent.gameObject.tag; 
+        //audioManganer = FindObjectOfType<AudioManganer>();
+        //find object with name
+        audioManganer = GameObject.Find("Audio Player").GetComponent<AudioManganer>();
+        
     }
 
 
@@ -39,6 +44,7 @@ public class RunestoneCode : MonoBehaviour
             {
                 Debug.Log("Correct Match!");
                 //play good match audio
+                audioManganer.PlayAudio(0, transform);
                 
                 GameManager.currentScore += GameManager.addedScore;
                 canPlaceFruit = false;
@@ -55,6 +61,7 @@ public class RunestoneCode : MonoBehaviour
             {
                 UnityEngine.Debug.Log("Incorrect!");
                 //play bad mismatch audio
+                audioManganer.PlayAudio(1, transform);
             }
         }
     }

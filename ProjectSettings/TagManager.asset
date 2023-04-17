@@ -17,6 +17,7 @@ TagManager:
   - Banana
   - Carrot
   - Spike
+  - audio player
   layers:
   - Default
   - TransparentFX
