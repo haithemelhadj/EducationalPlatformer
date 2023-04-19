@@ -541,7 +541,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56297797}
-  m_LocalRotation: {x: 0.17304143, y: 0.7429846, z: -0.21028256, w: 0.6114016}
+  m_LocalRotation: {x: 0.1730414, y: 0.7429846, z: -0.21028261, w: 0.61140156}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5321,7 +5321,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191045872}
-  m_LocalRotation: {x: 0.1730414, y: 0.7429846, z: -0.2102826, w: 0.61140156}
+  m_LocalRotation: {x: 0.1730414, y: 0.7429846, z: -0.21028262, w: 0.6114015}
   m_LocalPosition: {x: 8.994411, y: 29.28, z: 186.48987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7134,7 +7134,6 @@ GameObject:
   - component: {fileID: 1375303718}
   - component: {fileID: 1375303717}
   - component: {fileID: 1375303716}
-  - component: {fileID: 1375303715}
   - component: {fileID: 1375303714}
   m_Layer: 0
   m_Name: pablo14
@@ -7178,43 +7177,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &1375303715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375303712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53793f1117adf14b9ecdcd60a90fe9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFull: 0
-  collectedItem: {fileID: 0}
-  Fruits:
-  - {fileID: 21300000, guid: ebc1b43fd7429eb409ef5208017b901c, type: 3}
-  - {fileID: 21300000, guid: 03c3da0916d805d4aa1b49a4ea7cef87, type: 3}
-  - {fileID: 21300000, guid: bf90b0e313fff4e49906fcf6bd0e695e, type: 3}
-  - {fileID: 21300000, guid: 778bd7828d47726439bedbb0cff68e17, type: 3}
-  - {fileID: 21300000, guid: 0143039aa080bb24895d23bbc1ed60ea, type: 3}
-  - {fileID: 21300000, guid: 916d1488d59077c48bc6dc52d7aba9b2, type: 3}
-  - {fileID: 21300000, guid: 6346718437e9af54dbe75c90c7dbf724, type: 3}
-  - {fileID: 21300000, guid: 89c7333354f6f1d499baa5d7803c9833, type: 3}
-  - {fileID: 21300000, guid: 659a6676dffaca54c96bb50c7fa81310, type: 3}
-  - {fileID: 21300000, guid: 35ff9729372647d45ac7676e5da66d42, type: 3}
-  - {fileID: 21300000, guid: 68a579f217fbcc248aa7bdfbaf8d05bb, type: 3}
-  - {fileID: 21300000, guid: ee769952380be9d4782d2fcc69c53857, type: 3}
-  - {fileID: 21300000, guid: d71028a793b7a2e4483b4ba970dc7d7e, type: 3}
-  - {fileID: 21300000, guid: e1fc5b1c24b605b4183dfe294b14097c, type: 3}
-  - {fileID: 21300000, guid: 10c06d4cb192b8b43bef94d21631a91b, type: 3}
-  - {fileID: 21300000, guid: 0f8cd2d442c535641b37712d8497a019, type: 3}
-  - {fileID: 21300000, guid: 5eb182879da9f834c8149a8fd7832074, type: 3}
-  - {fileID: 21300000, guid: 5a61ead31f1818245a02ba8d836be0e8, type: 3}
-  - {fileID: 21300000, guid: dbf12f3c3ffc1b0439195a9300b9db0d, type: 3}
-  - {fileID: 21300000, guid: 38c993410fabef74391870ed6945fe11, type: 3}
-  - {fileID: 21300000, guid: fe191bead27f99642bf84bf2bcbe91ce, type: 3}
-  pickedFruit: {fileID: 0}
 --- !u!114 &1375303716
 MonoBehaviour:
   m_ObjectHideFlags: 0
