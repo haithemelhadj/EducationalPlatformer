@@ -9,20 +9,20 @@ public class Fruit : MonoBehaviour
     private bool isCollided = false;
     [SerializeField] private PlayerInventory playerInventory;
 
+
     private void Start()
     {
         
     }
     private void Update()
     {
-        
             if (Input.GetKeyDown(KeyCode.E) && (isCollided) && playerInventory.isFull== 0)
             {
                  playerInventory.FruitCollected(gameObject);
                  gameObject.SetActive(false);
                  isCollided= false;
                 
-            } 
+            }
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -9,7 +9,15 @@ public class PlayerInventory : MonoBehaviour
     public int isFull = 0;
     public GameObject collectedItem;
     public Sprite[] Fruits;
-    public GameObject pickedFruit;
+    public GameObject pickedFruitImage;
+    public Transform DropFruit;
+    [SerializeField] private Movement movement;
+
+    private void Update()
+    {
+        //dropItem();
+    }
+
     public void FruitCollected(GameObject item)
     {
         isFull = 1; 
@@ -29,10 +37,25 @@ public class PlayerInventory : MonoBehaviour
         {
             if (Fruits[i].name.ToLower() == fruit_Parent_Tag.ToLower() + "_" + fruit_tag.ToLower()) 
             {
-                pickedFruit.GetComponent<Image>().sprite = Fruits[i];
+                pickedFruitImage.GetComponent<Image>().sprite = Fruits[i];
                 break;
             }
         }        
     }
 
+    public void dropItem()
+    {
+        if (Input.GetKeyDown(KeyCode.A) && isFull == 1 && movement.isGrounded)
+        {
+            //collectedItem.transform.position = DropFruit.transform.position;
+            //collectedItem.SetActive(true);
+            //instantiate collected item in dropfruit position
+            //Instantiate(collectedItem, DropFruit.transform.position, Quaternion.identity);
+
+
+            isFull = 0;
+            collectedItem = null;
+        }
+    }
+        
 }

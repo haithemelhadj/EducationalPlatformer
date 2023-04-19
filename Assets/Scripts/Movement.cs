@@ -7,12 +7,13 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 5f; // The speed at which the character moves
     public float jumpForce = 5f; // The force applied to the character when jumping
     public Animator animator; // The Animator component for the character
-    [SerializeField] private bool isGrounded; // Whether the character is currently grounded
+    public bool isGrounded; // Whether the character is currently grounded
     [SerializeField] private float groundCheckDistance = 0.1f;
     [SerializeField] private CharacterController controller;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private bool RespawnNextFrame = false;
- 
+    
+
 
     public float gravity = -9.81f;
     private Vector3 velocity;
@@ -34,7 +35,7 @@ public class Movement : MonoBehaviour
     {
             Move();
             Jump();
-            
+
     }
     private void LateUpdate()
     {
