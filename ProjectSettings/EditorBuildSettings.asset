@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: e88d95a22466bb44ea931e9d7bb0b50d
+  - enabled: 1
+    path: Assets/Scenes/Chourouk Scene.unity
+    guid: e7bdd4acfb45489449924c3469e3738c
+  - enabled: 1
+    path: Assets/Scenes/LEVEL2.unity
+    guid: 6469d84df42071c4483626fdada0ad15
   m_configObjects: {}
