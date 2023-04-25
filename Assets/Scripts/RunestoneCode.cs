@@ -42,7 +42,7 @@ public class RunestoneCode : MonoBehaviour
         {
             if (droppedFruit.CompareTag(gameObject.tag) && parentTag == fruitParentTag)
             {
-                Debug.Log("Correct Match!");
+                //Debug.Log("Correct Match!");
                 //play good match audio
                 audioManganer.PlayAudio(0, transform);
                 
@@ -59,7 +59,7 @@ public class RunestoneCode : MonoBehaviour
             }
             else
             {
-                UnityEngine.Debug.Log("Incorrect!");
+                //UnityEngine.Debug.Log("Incorrect!");
                 //play bad mismatch audio
                 audioManganer.PlayAudio(1, transform);
             }
