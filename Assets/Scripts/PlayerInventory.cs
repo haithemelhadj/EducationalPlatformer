@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject collectedItem;
     public Sprite[] Fruits;
     public GameObject pickedFruitImage;
-    public Transform DropFruit;
+    //public Transform DropFruit;
     [SerializeField] private Movement movement;
 
     private void Update()
