@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -12,8 +14,11 @@ public class Movement : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private bool RespawnNextFrame = false;
-    
-
+    [SerializeField] private TMP_Text lifeText;
+    public int lifePoints = 5;
+    [SerializeField] private bool isHit = false;
+    public bool isAttacking = false;
+    public bool isAttacked = false;
 
     public float gravity = -9.81f;
     private Vector3 velocity;
@@ -35,6 +40,12 @@ public class Movement : MonoBehaviour
     {
             Move();
             Jump();
+            Attack();
+            LifePoints(lifePoints);
+        if (isAttacked)
+        {
+            StartCoroutine(Freeze(2.0f));
+        }
 
     }
     private void LateUpdate()
@@ -49,6 +60,8 @@ public class Movement : MonoBehaviour
             transform.position = Respawn.position;
             transform.rotation = Respawn.rotation;
             RespawnNextFrame = false;
+            //return isHit to false
+            StartCoroutine(SetFalseHit(1f));
         }
         if(transform.position.y< lowestPosition)
         {
@@ -121,19 +134,58 @@ public class Movement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    private void Attack()
+    {
+
+        if (Input.GetMouseButtonDown(0) && !isAttacked)
+        {
+            animator.SetTrigger("isAttack");
+            isAttacking = true;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            StartCoroutine(ResetAttack(1.5f));
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Respawn"))
         {
             Respawn = other.transform;
         }
-        if(other.CompareTag("Spike"))
+        if(other.CompareTag("Spike") && !isHit)
         {
+            isHit = true; 
             RespawnNextFrame = true;
+            LifePoints(lifePoints-1);
         }
+
+    }
+    public void LifePoints(int lifePt)
+    {
+        lifePoints = lifePt;
+        lifeText.SetText("X" + lifePoints.ToString());
+    }
+
+    IEnumerator SetFalseHit(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        isHit = false;
+    }
+    IEnumerator Freeze (float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        moveSpeed = 20f; 
+        isAttacked= false;
+    }
+    IEnumerator ResetAttack(float waitTime)
+    {
+        yield return new WaitForSeconds (waitTime);
+        isAttacking = false;
     }
 
     //OntriggerEnter 
     //if player collides with spikes -Life points 
-    
+
 }
