@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private bool RespawnNextFrame = false;
+    public bool canRespawn = true;
     
 
 
@@ -39,6 +40,7 @@ public class Movement : MonoBehaviour
     }
     private void LateUpdate()
     {
+        if(canRespawn)
         LastPosition();
     }
 

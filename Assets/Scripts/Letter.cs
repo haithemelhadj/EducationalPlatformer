@@ -16,14 +16,14 @@ public class Letter : MonoBehaviour
 
     private void Update()
     {
-        if (isColliding && Input.GetKeyDown(KeyCode.E) && !isPickedUp)
+        if (isColliding && Input.GetKeyDown(KeyCode.E) && !isPickedUp)//if player is colliding with letter and presses E and this letter isnot picked up
         {
             Debug.Log("PICKED ITEM");
-            spelling.SetPickedLetter(gameObject.name[0]);
-            meshRenderer.enabled = false;
-            isPickedUp = true;
+            spelling.SetPickedLetter(gameObject.name[0]); // set the picked letter 
+            meshRenderer.enabled = false;// disable the mesh renderer
+            isPickedUp = true; 
         }
-        else if (isPickedUp && !isColliding)
+        else if (isPickedUp && !isColliding)//if player is not colliding then enable the mesh renderer and set isPickedUp to false
         {
             meshRenderer.enabled = true;
             isPickedUp = false;

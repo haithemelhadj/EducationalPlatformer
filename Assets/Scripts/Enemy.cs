@@ -17,4 +17,23 @@ public class Enemy : MonoBehaviour
     {
         agent.SetDestination(new Vector3(player.position.x+1, player.position.y, player.position.z ));
     }
+
+    private void OnCollisionEnter(Collision collision)//for some reason collision is not detected so i used trigger instead 
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //reset scene
+            Debug.Log("Game Over!");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            //reset scene
+            Debug.Log("Game Over!!");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }

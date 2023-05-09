@@ -18,6 +18,7 @@ TagManager:
   - Carrot
   - Spike
   - audio player
+  - enemy
   layers:
   - Default
   - TransparentFX
