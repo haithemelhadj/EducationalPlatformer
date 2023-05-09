@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Text;
-
+using Newtonsoft.Json.Linq;
+//using System;
 
 public class Spelling : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Spelling : MonoBehaviour
     public char pickedLetter; //the picked letter
     [SerializeField] private int wordLen;
     [SerializeField] private int correctPlace = 0;
+    int guessedWords = 0;// to store the number of words guessed correctly to move to the next level
+    int[] usedwords= { -1};// to store the indexs of words that have been used and are already guees correctly 
 
     private void Start()
     {
@@ -34,7 +37,14 @@ public class Spelling : MonoBehaviour
     */ //this is extra
     public void ChooseWord()// choose random word from word list and set "-" for it's length
     {
-        randomIndex = Random.Range(0, wordList.Length);
+        emptyWord = string.Empty;
+        do
+        {
+            randomIndex = Random.Range(0, wordList.Length);
+        }
+        while (System.Array.IndexOf(usedwords, randomIndex) != -1); // picks a random new word that wasn't used before
+        usedwords = new int[randomIndex];
+
         word = wordList[randomIndex];
         //wordLen = word.Length;
         displaySprite.GetComponent<Image>().sprite = objects[randomIndex];
@@ -66,6 +76,7 @@ public class Spelling : MonoBehaviour
 
     public void CheckMatch()
     {
+        /*
         bool found = false;
         int i = 0;
         while (!found && i<word.Length )
@@ -81,8 +92,8 @@ public class Spelling : MonoBehaviour
             }
             i++;
         }//what if the letter is not correct what happens?
-
-        /*
+        */
+        
         //---------this is my way:
         int j;
         for (j = 0; j < word.Length; j++)
@@ -103,7 +114,9 @@ public class Spelling : MonoBehaviour
             Debug.Log(emptyWord);
             if (checkWholeWord())
             {
-                Debug.Log("You guessed the whole word!");                
+                Debug.Log("You guessed the whole word!");   
+                guessedWords++;
+                ChooseWord();
             }
 
         }
@@ -112,9 +125,9 @@ public class Spelling : MonoBehaviour
             Debug.Log("letter not correct");
         }
         //----------
-        */
+        
     }
-
+    /*
     //-----------------------
     private string ReplaceLetter(string word , int i, char c)//takes a word, a position and a letter then upadtes the word
     {
@@ -130,6 +143,7 @@ public class Spelling : MonoBehaviour
         Debug.Log(emptyword);
         return emptyword;
     }
+    */
     //-----------------------this is my way:
     //this does the same job of the past 2 functions
     string replace(string word, int position, char letter)

@@ -396,9 +396,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -65.613785, y: 12.686876, z: -14.383829}
+    m_Target: {x: -78.25799, y: 23.652298, z: -5.180854}
     speed: 2
-    m_Value: {x: -65.613785, y: 12.686876, z: -14.383829}
+    m_Value: {x: -78.25799, y: 23.652298, z: -5.180854}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -445,13 +445,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.1028827, y: -0.8860266, z: 0.23665163, w: 0.38519633}
+    m_Target: {x: 0.077460304, y: -0.91299796, z: 0.34365547, w: 0.20579056}
     speed: 2
-    m_Value: {x: 0.10288228, y: -0.88602304, z: 0.23665068, w: 0.38519478}
+    m_Value: {x: 0.07745975, y: -0.9129914, z: 0.34365302, w: 0.20578909}
   m_Size:
-    m_Target: 16.968039
+    m_Target: 10.19686
     speed: 2
-    m_Value: 16.968039
+    m_Value: 10.19686
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 58476
+  controlID: 65687
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -724,21 +724,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: fc64feffb665feff1266feff6e66feff8a66feffac6cfeff6e82ffff60adffffb6b6ffff8abbffff12c3ffffbed4ffffe2e4ffff7aeeffff5ef2ffff16fbffff1c6d0000646d0000966d00009c6d0000be6d00000a6e0000306e0000fa6e00000e6f0000227c0000989e00009c9e000092a10000b8bd0000a8be0000d6be00002ec0000034c100001e1d01006e1d01008a220100aa250100
+      m_ExpandedIDs: fc64feffb665feff1266feff6e66feff8a66feffac6cfeff6e82ffff60adffffb6b6ffff8abbffff12c3ffffbed4ffffe2e4ffff7aeeffff5ef2ffff16fbffff1c6d0000646d0000966d00009c6d0000be6d00000a6e0000306e0000fa6e00000e6f0000227c0000989e00009c9e000092a10000b8bd0000a8be0000d6be00002ec0000034c100001e1d01006e1d01008a2201007e230100aa250100d4250100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: lazerbej444
-        m_OriginalName: lazerbej444
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -105090
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 58466
+  controlID: 65604
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -958,8 +958,8 @@ MonoBehaviour:
     y: 0
     width: 298.40002
     height: 440
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -1072,7 +1072,7 @@ MonoBehaviour:
     x: 1237.6
     y: 73.6
     width: 297.40002
-    height: 419.8
+    height: 419
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
