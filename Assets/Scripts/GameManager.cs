@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            timeLeft = Timer;
+            //timeLeft = Timer;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //rest game because loss
         }
     }
 
