@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         //controller = GetComponent<CharacterController>();
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()

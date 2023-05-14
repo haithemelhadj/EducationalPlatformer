@@ -1231,6 +1231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 278491865}
   player: {fileID: 1375303713}
+  detectionDistance: 0
 --- !u!1001 &280958771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2163,15 +2164,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1332377924640182482, guid: 5e65ffeefb2e05541a58921067263fcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.924618
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1332377924640182482, guid: 5e65ffeefb2e05541a58921067263fcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.02535
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 1332377924640182482, guid: 5e65ffeefb2e05541a58921067263fcc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.38272443
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1332377924640182482, guid: 5e65ffeefb2e05541a58921067263fcc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2240,15 +2241,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853441244296168824, guid: dc19fcf0d7457db448b904d399bdeaed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.2980156
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6853441244296168824, guid: dc19fcf0d7457db448b904d399bdeaed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.6682
+      value: 31.7
       objectReference: {fileID: 0}
     - target: {fileID: 6853441244296168824, guid: dc19fcf0d7457db448b904d399bdeaed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4666752
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6853441244296168824, guid: dc19fcf0d7457db448b904d399bdeaed, type: 3}
       propertyPath: m_LocalRotation.w

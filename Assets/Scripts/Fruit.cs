@@ -16,7 +16,7 @@ public class Fruit : MonoBehaviour
     }
     private void Update()
     {
-            if (Input.GetKeyDown(KeyCode.E) && (isCollided) && playerInventory.isFull== 0)
+            if ((isCollided) && playerInventory.isFull== 0 )//&& Input.GetKeyDown(KeyCode.E) )
             {
                  playerInventory.FruitCollected(gameObject);
                  gameObject.SetActive(false);

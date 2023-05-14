@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
+    public float detectionDistance;
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
+        if (Vector3.Distance(transform.position, player.position) < detectionDistance)
         agent.SetDestination(new Vector3(player.position.x+1, player.position.y, player.position.z ));
     }
 
