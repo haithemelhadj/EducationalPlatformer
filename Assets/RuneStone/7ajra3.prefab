@@ -99,8 +99,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02228828, y: 0.041498236, z: 0.048765283}
-  m_Center: {x: -0.0008133013, y: 0.010764432, z: 0.014027141}
+  m_Size: {x: 0.039289854, y: 0.045267362, z: 0.04876528}
+  m_Center: {x: -0.0021332463, y: 0.008879852, z: 0.014027037}
 --- !u!114 &6922479944506931936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,9 +114,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 0}
-  isCollided: 0
+  canPlaceFruit: 0
   droppedFruit: {fileID: 0}
-  slotFruit: {fileID: 0}
+  audioManganer: {fileID: 0}
+  empty: {fileID: 0}
+  pickedFruit: {fileID: 0}
 --- !u!65 &5614656981274918308
 BoxCollider:
   m_ObjectHideFlags: 0

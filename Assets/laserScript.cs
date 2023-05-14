@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+
 public class laserScript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
@@ -12,7 +13,7 @@ public class laserScript : MonoBehaviour
         {
             //reset scene
             Debug.Log("Game Over");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

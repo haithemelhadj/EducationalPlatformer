@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e56d554c38b854799a894d544f8da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eLetter: {fileID: 0}
   playerInventory: {fileID: 0}
   canPlaceFruit: 0
   droppedFruit: {fileID: 0}

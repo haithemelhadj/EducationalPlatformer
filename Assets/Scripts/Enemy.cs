@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;   
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
         {
             //reset scene
             Debug.Log("Game Over!!");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

@@ -116,6 +116,10 @@ public class Spelling : MonoBehaviour
             {
                 Debug.Log("You guessed the whole word!");   
                 guessedWords++;
+                if(guessedWords >= 3)
+                {
+                    Debug.Log("you win!");
+                }
                 ChooseWord();
             }
 

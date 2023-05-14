@@ -69,18 +69,32 @@ public class GameManager : MonoBehaviour
 
     public void CheckScore()
     {
-        if(currentScore < levelScore)
+        if(timeLeft<0 && currentScore< 20)
         {
             // lose and reset level
+            Debug.Log("You Lose!");
             //rest scene
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Invoke("ReloadScene", 3);
         }
-        else
+        else if(currentScore>=20)
         {
             //win and move to next scene
+            Debug.Log("You Win!");
             //trigger lab animation
             //load next scene
+            Invoke("NextScene", 5);
+            
         }
+    }
+
+    void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
