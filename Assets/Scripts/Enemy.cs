@@ -17,8 +17,17 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (Vector3.Distance(transform.position, player.position) < detectionDistance)
-        agent.SetDestination(new Vector3(player.position.x+1, player.position.y, player.position.z ));
+        {
+            agent.SetDestination(new Vector3(player.position.x+1, player.position.y, player.position.z ));
+
+        }
+        else
+        {
+            //go to start position
+            agent.SetDestination(transform.position);
+        }
     }
+
 
     private void OnCollisionEnter(Collision collision)//for some reason collision is not detected so i used trigger instead 
     {
