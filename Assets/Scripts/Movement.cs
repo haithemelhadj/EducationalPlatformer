@@ -136,7 +136,7 @@ public class Movement : MonoBehaviour
     private void Attack()
     {
 
-        if (Input.GetMouseButtonDown(0) && !isAttacked)
+        if (Input.GetKeyDown(KeyCode.C) && !isAttacked)
         {
             animator.SetTrigger("isAttack");
             isAttacking = true;
