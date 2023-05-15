@@ -45,8 +45,8 @@ public class Movement : MonoBehaviour
         {
             StartCoroutine(Freeze(2.0f));
         }
-
     }
+
     private void LateUpdate()
     {
         LastPosition();
@@ -141,7 +141,7 @@ public class Movement : MonoBehaviour
             animator.SetTrigger("isAttack");
             isAttacking = true;
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetKeyUp(KeyCode.C))
         {
             StartCoroutine(ResetAttack(1.5f));
         }
