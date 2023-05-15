@@ -19,6 +19,9 @@ TagManager:
   - Spike
   - audio player
   - enemy
+  - Leg
+  - Obstacle
+  - Enemy
   layers:
   - Default
   - TransparentFX
