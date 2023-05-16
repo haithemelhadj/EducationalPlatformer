@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         CoolDownTimer();
         DiesplayTimer();
         DisplayScore();
+        CheckScore();
     }
 
     public void DiesplayTimer()
