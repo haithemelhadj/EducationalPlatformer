@@ -12,10 +12,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Movement playerScript;
     public GameObject particles;
     public GameObject particles2;
-    public Renderer objectRenderer;
-    public Material newMaterial;
-    public Material oldMaterial;
-    int lp;
     void Start()
     {
         agent.GetComponent<NavMeshAgent>();
@@ -26,15 +22,12 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, player.position) < detectionDistance)
         {
             agent.SetDestination(new Vector3(player.position.x+1, player.position.y, player.position.z ));
-            StartCoroutine(EvilEyes());
+
         }
         else
         {
             //go to start position
             agent.SetDestination(transform.position);
-            Material[] materials = objectRenderer.materials;
-            materials[2] = oldMaterial;
-            objectRenderer.materials = materials;
         }
     }
  
@@ -53,18 +46,7 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Attack Player");
             Instantiate(particles2, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            lp = playerScript.lifePoints;
-            lp--;
-            playerScript.LifePoints(lp);
+            Destroy(gameObject, 0.1f);
         }
-    }
-
-    IEnumerator EvilEyes()
-    {
-        yield return new WaitForSeconds(0.8f);
-        Material[] materials = objectRenderer.materials;
-        materials[2] = newMaterial;
-        objectRenderer.materials = materials;
     }
 }
