@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RunestoneCode : MonoBehaviour
 {
-    public GameObject eLetter;
+    public Image eLetter;
     //[SerializeField] private GameObject Player;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private bool canPlaceFruit = false;
@@ -21,13 +21,14 @@ public class RunestoneCode : MonoBehaviour
 
     private void Awake()
     {
-        
-        eLetter = GameObject.Find("Press E to Place Fruit Text");
+
+        //eLetter = GameObject.Find("Press E to Place Fruit Text");
+        eLetter = gameObject.GetComponentInChildren<Image>();
     }
 
     private void Start()
     {
-        eLetter.SetActive(false);
+        eLetter.gameObject.SetActive(false);
         parentTag = transform.parent.gameObject.tag; 
         //audioManganer = FindObjectOfType<AudioManganer>();
         //find object with name
@@ -77,9 +78,9 @@ public class RunestoneCode : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            eLetter.SetActive(true);
+            eLetter.gameObject.SetActive(true);
 
-            if(playerInventory.isFull==1)
+            if (playerInventory.isFull==1)
             {
                 droppedFruit = playerInventory.collectedItem;
 
@@ -96,7 +97,7 @@ public class RunestoneCode : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canPlaceFruit = false;
-            eLetter.SetActive(false);
+            eLetter.gameObject.SetActive(false);
         }
     }
 }
