@@ -22,6 +22,7 @@ TagManager:
   - Leg
   - Obstacle
   - Enemy
+  - HitPoint
   layers:
   - Default
   - TransparentFX

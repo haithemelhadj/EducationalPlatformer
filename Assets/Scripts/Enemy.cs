@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public float detectionDistance;
-
+    [SerializeField] private Movement playerScript;
+    public GameObject particles;
+    public GameObject particles2;
     void Start()
     {
         agent.GetComponent<NavMeshAgent>();
@@ -28,24 +30,23 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(transform.position);
         }
     }
+ 
 
-
-    private void OnCollisionEnter(Collision collision)//for some reason collision is not detected so i used trigger instead 
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //reset scene
-            Debug.Log("Game Over!");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Leg") && playerScript.isAttacking)
         {
-            //reset scene
-            Debug.Log("Game Over!!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            playerScript.isAttacking = false;
+            //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            Destroy(gameObject, 0.1f);
+            Instantiate(particles, transform.position, Quaternion.identity);
+        }
+
+        if (other.CompareTag("HitPoint"))
+        {
+            Debug.Log("Attack Player");
+            Instantiate(particles2, transform.position, Quaternion.identity);
+            Destroy(gameObject, 0.1f);
         }
     }
 }
