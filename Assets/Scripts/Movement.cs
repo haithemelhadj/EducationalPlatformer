@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private bool RespawnNextFrame = false;
     [SerializeField] private TMP_Text lifeText;
+    public bool playerHasHealth = false;
     public int lifePoints = 5;
     [SerializeField] private bool isHit = false;
     public bool isAttacking = false;
@@ -40,7 +41,11 @@ public class Movement : MonoBehaviour
         Move();
         Jump();
         Attack();
-        LifePoints(lifePoints);
+        if(playerHasHealth)
+        {
+            LifePoints(lifePoints);
+
+        }
         if (isAttacked)
         {
             StartCoroutine(Freeze(2.0f));
@@ -161,6 +166,7 @@ public class Movement : MonoBehaviour
         }
 
     }
+    
     public void LifePoints(int lifePt)
     {
         lifePoints = lifePt;
@@ -187,4 +193,45 @@ public class Movement : MonoBehaviour
     //OntriggerEnter 
     //if player collides with spikes -Life points 
 
+    private void OnDrawGizmos()
+    {
+        
+    }
+
+    
+    public Transform gunMuzzle; // The transform representing the gun's muzzle
+    void Aiming()
+    {
+        //cast a ray from screen center to forward vector
+        
+        // Get the center position of the screen
+        Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+
+        // Cast a ray from the center of the screen in the forward direction
+        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit))
+        {
+            // Get the position where the ray hits a collider
+            Vector3 hitPosition = hit.point;
+            Debug.Log("Hit position: " + hitPosition);
+
+            // Perform additional actions with the hit position, such as spawning an effect or interacting with objects
+
+            // Cast a ray from the gun's muzzle to the target position
+            Ray ray1 = new Ray(gunMuzzle.position, (hitPosition - gunMuzzle.position).normalized);
+            RaycastHit hit1;
+
+            if (Physics.Raycast(ray1, out hit1))
+            {
+                // Get the position where the ray hits a collider
+                Vector3 hitPosition1 = hit.point;
+                Debug.Log("Hit position: " + hitPosition1);
+
+                // Perform additional actions with the hit position, such as spawning an effect or interacting with objects
+                // ...
+            }
+        }        
+    }
 }

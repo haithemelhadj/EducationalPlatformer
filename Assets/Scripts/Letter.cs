@@ -8,9 +8,17 @@ public class Letter : MonoBehaviour
     [SerializeField] private Spelling spelling;
     [SerializeField] private bool isPickedUp = false;
     private MeshRenderer meshRenderer;
+    public GameObject Tip;
+
+    private void Awake()
+    {
+        Tip = GameObject.Find("Press E to pick letter");
+    }
+
 
     private void Start()
-    {
+    {        
+        Tip.SetActive(false);
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
@@ -35,6 +43,7 @@ public class Letter : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isColliding = true;
+            Tip.SetActive(true);
         }
     }
 
@@ -43,6 +52,7 @@ public class Letter : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isColliding = false;
+            Tip.SetActive(false);
         }
     }
 }

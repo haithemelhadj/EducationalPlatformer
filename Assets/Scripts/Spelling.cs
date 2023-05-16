@@ -113,6 +113,7 @@ public class Spelling : MonoBehaviour
         if (j < word.Length) 
         {
             Debug.Log("letter correct");
+            //play correct sound 
             Debug.Log(word);
             Debug.Log(emptyWord);
             if (checkWholeWord())
@@ -132,6 +133,7 @@ public class Spelling : MonoBehaviour
         else
         {
             Debug.Log("letter not correct");
+            //play wrong sound
         }
         //----------
         
