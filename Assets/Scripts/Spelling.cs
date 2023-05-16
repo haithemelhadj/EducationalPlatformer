@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Unity.VisualScripting;
 //using System;
 
 public class Spelling : MonoBehaviour
@@ -20,7 +21,9 @@ public class Spelling : MonoBehaviour
     [SerializeField] private int correctPlace = 0;
     int guessedWords = 0;// to store the number of words guessed correctly to move to the next level
     int[] usedwords= { -1};// to store the indexs of words that have been used and are already guees correctly 
-
+    public GameObject door1;
+    public GameObject door2;
+    public NextSectionCheck nextSectionCheck;
     private void Start()
     {
         ChooseWord();//choose a random word from the list
@@ -114,13 +117,15 @@ public class Spelling : MonoBehaviour
             Debug.Log(emptyWord);
             if (checkWholeWord())
             {
-                Debug.Log("You guessed the whole word!");   
+                Debug.Log("You guessed the whole word!");
                 guessedWords++;
-                if(guessedWords >= 3)
+                Debug.Log("OPEN DOOR");
+                OpenDoor();
+
+                if (nextSectionCheck.nextCheck)
                 {
-                    Debug.Log("you win!");
+                    ChooseWord();
                 }
-                ChooseWord();
             }
 
         }
@@ -150,6 +155,7 @@ public class Spelling : MonoBehaviour
     */
     //-----------------------this is my way:
     //this does the same job of the past 2 functions
+    //Whatever dude ken mchit 3malt 7aja okhra 5ir 
     string replace(string word, int position, char letter)
     {
         char[] chars = word.ToCharArray();
@@ -157,4 +163,13 @@ public class Spelling : MonoBehaviour
         string newString = new string(chars);
         return newString;
     }
+
+    private void OpenDoor()
+    {
+        /*door1.transform.Translate (Vector3.right * 5.0f * Time.deltaTime, Space.World);
+        door2.transform.Translate(Vector3.left * 5.0f * Time.deltaTime, Space.World);*/
+        Destroy(door1);
+        Destroy(door2);
+    }
+
 }

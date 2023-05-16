@@ -23,6 +23,7 @@ TagManager:
   - Obstacle
   - Enemy
   - HitPoint
+  - NextSection
   layers:
   - Default
   - TransparentFX
